@@ -5,6 +5,7 @@ project(Snappy VERSION 1.1.7 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # BUILD_SHARED_LIBS is a standard CMake variable, but we declare it here to make
 # it prominent in the GUI.
@@ -133,6 +134,7 @@ if(BUILD_SHARED_LIBS)
   set_target_properties(snappy PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif(BUILD_SHARED_LIBS)
 
+if(FALSE) 
 if(SNAPPY_BUILD_TESTS)
   enable_testing()
 
@@ -164,6 +166,7 @@ if(SNAPPY_BUILD_TESTS)
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
     COMMAND "${PROJECT_BINARY_DIR}/snappy_unittest")
 endif(SNAPPY_BUILD_TESTS)
+endif()
 
 include(GNUInstallDirs)
 install(TARGETS snappy
